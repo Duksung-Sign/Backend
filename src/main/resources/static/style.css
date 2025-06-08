@@ -1,0 +1,137 @@
+@font-face { /*얇은글씨*/
+    font-family: 'Font1';
+    src: url('fonts/PFstardust.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+  }
+  
+@font-face { /*중간글씨*/
+    font-family: 'Font2';
+    src: url('fonts/PFstardust_Bold.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+  }
+  
+@font-face { /*굵은글씨*/
+    font-family: 'Font3';
+    src: url('fonts/PFstardust_ExtraBold.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+  }
+
+/* 커서모양 변경 
+.pointer {
+    cursor: url('img/냥발바닥.png'), auto;
+  }
+.wait {
+    cursor: wait; 
+  }
+.zoomin {
+    cursor: zoom-in; 
+  } 
+*/
+
+body {
+  /*cursor: url('img/냥발바닥.png'), auto;*/
+  background: #000;
+  margin: 0;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.nav {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 40px;
+  margin-top: 40px;
+}
+.nav-btn {
+    
+  background: #c87c7c;
+  color: #fff;
+  font-family: 'Font3', '맑은고딕', Arial, sans-serif;
+  font-size: 2rem;
+  border: none;
+  border-radius: 30px;
+  padding: 10px 50px;
+  letter-spacing: 2px;
+  cursor: pointer;  /*발바닥 이미지로 바꾸기*/
+  position: relative;
+  transition: background 0.2s;
+}
+.nav-btn.selected {
+  background: #58577d;
+  color: #fff;
+  border: 3px solid #ffe4a4;
+  box-shadow: 0 0 0 6px #ffe4a4, 0 0 20px 0 #ffe4a4 inset;
+  z-index: 1;
+}
+/*발바닥(포우) 장식: CSS로 단순화 이미지 픽셀 작업 필요요*/
+.nav-btn.selected::after {
+  content: '';
+  position: absolute;
+  top: -10px;
+  right: -30px;
+  width: 65px;
+  height: 65px;
+  background: url('img/catspaw.png')  no-repeat center center;
+  background-size: contain;
+}
+.nav-btn:hover:not(.selected) {
+  background: #b86a6a;
+}
+.container-box {
+  background: url('img/bg.png') no-repeat center center;
+  background-size: cover;
+  width: 90vw;
+  max-width: 900px;
+  aspect-ratio: 16 / 9;
+  margin: 60px auto 0 auto;
+  border: 2.5px solid #c87c7c;
+  border-radius: 18px;
+  box-shadow: 0 4px 32px rgba(0,0,0,0.18);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.info-box {
+  background: rgba(255,255,255,0.65);
+  border-radius: 24px;
+  padding: 20px 25px;
+  /*box-shadow: 0 4px 24px rgba(0,0,0,0.08);*/
+  text-align: left;
+  font-family: 'Font2', '맑은고딕', Arial, sans-serif;
+  line-height: 1.6;
+  color: #c87c7c;
+  font-size: 2.0rem;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 90%;
+  height: 400px;
+  max-width: 90vw;
+  max-height: 60vh;
+  box-sizing: border-box;
+  overflow-y: auto;
+  margin-bottom: 48px; 
+}
+
+.page-title {
+  font-family: 'Font3', '맑은고딕', Arial, sans-serif;
+  font-size: 3rem;
+  color: #fff7e4;
+  margin-bottom: 15px;           /* info-box와의 간격 */
+  margin-top: 48px;              /* 위쪽 여백 */
+  letter-spacing: 2px;
+  text-shadow: 0 2px 12px rgba(0,0,0,0.32);
+  text-align: center;
+  z-index: 2;
+}
